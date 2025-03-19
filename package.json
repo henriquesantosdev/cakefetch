@@ -1,28 +1,30 @@
 {
   "name": "cakefetch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cakefetch is a lightweight library for making HTTP requests based on fetch, facilitating the consumption of REST APIs with a simple and intuitive wrapper.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     "import": "./dist/index.js",
-    "require": "./dist/index.js"
+    "require": "./dist/cjs/index.js"
   },
   "files": [
-    "dist/**/*"
+    "dist/*.js",
+    "dist/*.cjs",
+    "dist/*.d.ts"
   ],
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc && tsc --project cjs.config.json"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/henriquesantosdev/cakefetch"
   },
   "keywords": ["fetch", "cakefetch", "http", "request", "response", "typescript", "rest-api", "restful-api"],
-  "author": "contato.henriquesantosdev@gmail.com",
+  "author": "Henrique Santos <contato.henriquesantosdev@gmail.com>",
   "homepage": "https://github.com/henriquesantosdev/cakefetch#readme",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "typescript": "^5.8.2"

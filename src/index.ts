@@ -8,7 +8,7 @@ type RequestConfig = RequestInit & {
   }
 }
 
-export default class Nanofetch {
+export default class Cakefetch {
   private baseUrl: string
   private requestInterceptor: Interceptor<RequestInit>[] = []
   private responseInterceptor: Interceptor<Response>[] = []

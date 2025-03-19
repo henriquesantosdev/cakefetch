@@ -44,13 +44,11 @@ export default class Cakefetch {
     let fullUrl = this.baseUrl + url;
     let config: RequestInit = { ...options };
 
-    // Aplicando interceptores de requisição
     config = await this.applyInterceptors(config, this.requestInterceptor);
 
     try {
       let response = await fetch(fullUrl, config);
 
-      // Aplicando interceptores de resposta
       response = await this.applyInterceptors(response, this.responseInterceptor);
 
       if (!response.ok) {
@@ -65,7 +63,6 @@ export default class Cakefetch {
 
   get<T>(url: string, options: RequestInit = {}): Promise<T> {
     url = this.sanitizeUrl(url)
-    console.log(url)
     return this.request<T>(url, {
       ...options,
       method: 'GET',

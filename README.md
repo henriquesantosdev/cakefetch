@@ -1,19 +1,19 @@
-# Nanofetch
+# Cakefetch
 
-![npm](https://img.shields.io/npm/v/nanofetch)
-![license](https://img.shields.io/npm/l/nanofetch)
-![build](https://img.shields.io/github/actions/workflow/status/seu-usuario/nanofetch/ci.yml)
+![npm](https://img.shields.io/npm/v/cakefetch)
+![license](https://img.shields.io/npm/l/cakefetch)
+![build](https://img.shields.io/github/actions/workflow/status/seu-usuario/cakefetch/ci.yml)
 
-Nanofetch é uma biblioteca leve para fazer requisições HTTP baseada no `fetch`, facilitando o consumo de APIs REST com um wrapper simples e intuitivo.
+Cakefetch é uma biblioteca leve para fazer requisições HTTP baseada no `fetch`, facilitando o consumo de APIs REST com um wrapper simples e intuitivo.
 
 ## Instalação
 
-Instale o Nanofetch via npm ou yarn:
+Instale o Cakefetch via npm ou yarn:
 
 ```sh
-npm install nanofetch
+npm install cakefetch
 # ou
-yarn add nanofetch
+yarn add cakefetch
 ```
 
 ## Uso
@@ -21,9 +21,9 @@ yarn add nanofetch
 ### Criando uma instância
 
 ```javascript
-import Nanofetch from 'nanofetch'
+import Cakefetch from 'cakefetch'
 
-const api = new Nanofetch({
+const api = new Cakefetch({
   baseUrl: 'https://apiurl.com/'
 })
 ```

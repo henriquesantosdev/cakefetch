@@ -1,5 +1,5 @@
 {
-  "name": "nanofetch",
+  "name": "cakefetch",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/henriquesantosdev/nanofetch"
+    "url": "https://github.com/henriquesantosdev/cakefetch"
   },
-  "keywords": ["fetch", "nanofetch", "http", "request", "response", "typescript", "rest-api", "restful-api"],
+  "keywords": ["fetch", "cakefetch", "http", "request", "response", "typescript", "rest-api", "restful-api"],
   "author": "contato.henriquesantosdev@gmail.com",
-  "homepage": "https://github.com/henriquesantosdev/nanofetch#readme",
+  "homepage": "https://github.com/henriquesantosdev/cakefetch#readme",
   "license": "ISC",
   "type": "module",
   "devDependencies": {

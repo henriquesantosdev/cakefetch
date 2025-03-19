@@ -1,0 +1,30 @@
+{
+  "name": "nanofetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henriquesantosdev/nanofetch"
+  },
+  "keywords": ["fetch", "nanofetch", "http", "request", "response", "typescript"],
+  "author": "contato.henriquesantosdev@gmail.com",
+  "homepage": "https://github.com/henriquesantosdev/nanofetch#readme",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

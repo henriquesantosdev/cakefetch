@@ -1,3 +1,8 @@
+.vscode/
+src/
+tsconfig.json
+cjs.config.json
+README.md
 node_modules
 .git
 test.js

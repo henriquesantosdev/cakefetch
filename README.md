@@ -24,7 +24,7 @@ yarn add nanofetch
 import Nanofetch from 'nanofetch'
 
 const api = new Nanofetch({
-  baseUrl: 'http://localhost:3000/'
+  baseUrl: 'https://apiurl.com/'
 })
 ```
 
@@ -48,10 +48,10 @@ fetchGet()
 const fetchPost = async () => {
   try {
     const response = await api.post('users', {
-      email: "testelib2@gmail.com",
-      password: "senha1234"
+      email: "useremail@domain.com",
+      password: "password1234"
     })
-    console.log(response)
+    return response
   } catch (error) {
     console.error(error)
   }
@@ -64,10 +64,10 @@ fetchPost()
 const fetchPut = async () => {
   try {
     const response = await api.put('users/1284ce1d-f69e-4287-87f4-815de61cbc22', {
-      email: "fernando@gmail.com",
-      password: "fernando1234"
+      email: "useremail@domain.com",
+      password: "password1234"
     })
-    console.log(response)
+    return response
   } catch (error) {
     console.error(error)
   }
@@ -80,10 +80,10 @@ fetchPut()
 const fetchPatch = async () => {
   try {
     const response = await api.patch('users/1284ce1d-f69e-4287-87f4-815de61cbc22', {
-      email: "fernandopatch02@gmail.com",
-      password: "patch1234"
+      email: "useremail@domain.com",
+      password: "password1234"
     })
-    console.log(response)
+    return response
   } catch (error) {
     console.error(error)
   }
@@ -96,7 +96,7 @@ fetchPatch()
 const fetchDelete = async () => {
   try {
     const response = await api.delete('users/1284ce1d-f69e-4287-87f4-815de61cbc22')
-    console.log(response)
+    return response
   } catch (error) {
     console.error(error)
   }

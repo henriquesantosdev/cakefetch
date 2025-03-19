@@ -1,5 +1,7 @@
 # Cakefetch
 
+![Cakefetch Logo](https://www.henriquesantosdev.com/cakefetch.svg)
+
 Click to redirect | Clique para redirecionar
 🇧🇷 [Português](#portuguese) | 🇺🇸 [English](#english)
 

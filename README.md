@@ -104,6 +104,34 @@ const fetchDelete = async () => {
 fetchDelete()
 ```
 
+## Interceptors
+
+### Request
+```javascript
+api.addRequestInterceptor((config) => {
+  config.headers.Authorization = "Bearer {token}"
+  console.log(config)
+  return config
+})
+
+```
+
+### Response
+```javascript
+api.addResponseInterceptor(async response => {
+  if (!response.ok) {
+    return Promise.reject(new Error(`Erro na requisição: ${response.status}`));
+  }
+  const alterResponse = await response.json()
+  alterResponse.data = {
+    ...alterResponse.data,
+    teste: 'teste'
+  }
+  return new Response(JSON.stringify(alterResponse));
+});
+
+```
+
 ## Contribuição
 
 Contribuições são bem-vindas! Para contribuir:

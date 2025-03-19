@@ -19,7 +19,7 @@
     "type": "git",
     "url": "https://github.com/henriquesantosdev/nanofetch"
   },
-  "keywords": ["fetch", "nanofetch", "http", "request", "response", "typescript"],
+  "keywords": ["fetch", "nanofetch", "http", "request", "response", "typescript", "rest-api", "restful-api"],
   "author": "contato.henriquesantosdev@gmail.com",
   "homepage": "https://github.com/henriquesantosdev/nanofetch#readme",
   "license": "ISC",

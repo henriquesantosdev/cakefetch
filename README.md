@@ -1,13 +1,13 @@
 # Cakefetch
 
-Click to redirect
+Click to redirect | Clique para redirecionar
 🇧🇷 [Português](#portuguese) | 🇺🇸 [English](#english)
 
 ---
 
 <a name="portuguese"></a>
 
-## Cakefetch (Português)
+## Cakefetch (🇧🇷 Português)
 
 ![npm](https://img.shields.io/npm/v/cakefetch)
 ![license](https://img.shields.io/npm/l/cakefetch)
@@ -158,7 +158,7 @@ Desenvolvido com ❤️ por [Henrique Santos](https://github.com/henriquesantosd
 
 <a name="english"></a>
 
-## Cakefetch (English)
+## Cakefetch (🇺🇸 English)
 
 ![npm](https://img.shields.io/npm/v/cakefetch)
 ![license](https://img.shields.io/npm/l/cakefetch)

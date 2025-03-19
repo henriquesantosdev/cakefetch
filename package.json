@@ -1,6 +1,6 @@
 {
   "name": "cakefetch",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Cakefetch is a lightweight library for making HTTP requests based on fetch, facilitating the consumption of REST APIs with a simple and intuitive wrapper.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,0 +1,1 @@
+export type Interceptor<T> = (data: T) => T | Promise<T>

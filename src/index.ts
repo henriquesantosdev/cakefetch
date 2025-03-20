@@ -1,28 +1,39 @@
-type Interceptor<T> = (data: T) => T | Promise<T>
-
-type RequestConfig = RequestInit & {
-  baseUrl?: string,
-  interceptors?: {
-    request?: Interceptor<RequestInit>,
-    response?: Interceptor<Response>
-  }
-}
+// import { sanitizeUrl } from "./utils/sanitizeUrl"
+import { Interceptor } from "./types/interceptor"
+import { RequestConfig } from "./types/request"
 
 export default class Cakefetch {
   private baseUrl: string
+  private authToken: string | undefined
   private requestInterceptor: Interceptor<RequestInit>[] = []
   private responseInterceptor: Interceptor<Response>[] = []
 
   constructor(config?: RequestConfig) {
     this.baseUrl = config?.baseUrl || ''
+    this.authToken = config?.authToken || undefined
   }
 
-  sanitizeUrl(url: string) {
-    if (url[0] === '/') {
-      url = url.slice(1, url.length)
+  private async applyToken(token: string, config?: RequestInit) {
+    const newConfig = {
+      ...config
     }
-    console.log()
-    return url
+    if (this.authToken) {
+      newConfig.headers = {
+        ...newConfig.headers,
+        'Authorization': `${token}`
+      }
+    }
+    return newConfig;
+  }
+
+  sanitizeUrl = (url: string, baseUrl: string) => {
+    try {
+      url = url.trim()
+      const parsedUrl = new URL(`${baseUrl}${url}`)
+      return parsedUrl.href
+    } catch (error) {
+      throw new Error(`Invalid url: ${error}`)      
+    }
   }
 
   addRequestInterceptor(interceptor: Interceptor<RequestInit>) {
@@ -41,18 +52,21 @@ export default class Cakefetch {
   }
 
   async request<T>(url: string, options?: RequestInit): Promise<T> {
-    let fullUrl = this.baseUrl + url;
+    let fullUrl = this.sanitizeUrl(url, this.baseUrl);
     let config: RequestInit = { ...options };
+
+    if (this.authToken) {
+      config = await this.applyToken(this.authToken, options)
+    }
 
     config = await this.applyInterceptors(config, this.requestInterceptor);
 
     try {
       let response = await fetch(fullUrl, config);
-
       response = await this.applyInterceptors(response, this.responseInterceptor);
 
       if (!response.ok) {
-        throw new Error(`Http error! status: ${response.status}`);
+        throw new Error(`Http error! status: ${response.status} | ${response.statusText}`);
       }
 
       return response.json();
@@ -62,7 +76,6 @@ export default class Cakefetch {
   }
 
   get<T>(url: string, options: RequestInit = {}): Promise<T> {
-    url = this.sanitizeUrl(url)
     return this.request<T>(url, {
       ...options,
       method: 'GET',
@@ -73,22 +86,18 @@ export default class Cakefetch {
   }
 
   post<T>(url: string, body?: any, options: RequestInit = {}): Promise<T> {
-    url = this.sanitizeUrl(url)
     return this.request<T>(url, this.mergeParams('POST', body, options))
   }
 
   put<T>(url: string, body?: any, options: RequestInit = {}): Promise<T> {
-    url = this.sanitizeUrl(url)
     return this.request<T>(url, this.mergeParams('PUT', body, options))
   }
 
   patch<T>(url: string, body?: any, options: RequestInit = {}): Promise<T> {
-    url = this.sanitizeUrl(url)
     return this.request<T>(url, this.mergeParams('PATCH', body, options))
   }
 
   delete<T>(url: string, options: RequestInit = {}): Promise<T> {
-    url = this.sanitizeUrl(url)
     return this.request<T>(url, {
       ...options,
       method: 'DELETE',

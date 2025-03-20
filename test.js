@@ -1,33 +1,32 @@
-import Nanofetch from 'nanofetch'
+import Cakefetch from 'cakefetch'
 
-const api = new Nanofetch({
-  baseUrl: 'http://localhost:3000/'
+const api = new Cakefetch({
+  baseUrl: 'http://localhost:3000',
 })
 
 //uso do interceptor do request
-api.addRequestInterceptor((config) => {
-  config.headers.Authorization = "Bearer {token}"
-  console.log(config)
-  return config
-})
+// api.addRequestInterceptor((config) => {
+//   console.log(config.headers.Authorization)
+//   return config
+// })
 
 // uso do interceptor do response
-api.addResponseInterceptor(async response => {
-  if (!response.ok) {
-    return Promise.reject(new Error(`Erro na requisição: ${response.status}`));
-  }
-  const alterResponse = await response.json()
-  alterResponse.data = {
-    ...alterResponse.data,
-    teste: 'teste'
-  }
-  return new Response(JSON.stringify(alterResponse));
-});
+// api.addResponseInterceptor(async response => {
+//   if (!response.ok) {
+//     return Promise.reject(new Error(`Erro na requisição: ${response.status}`));
+//   }
+//   const alterResponse = await response.json()
+//   alterResponse.data = {
+//     ...alterResponse.data,
+//     teste: 'teste'
+//   }
+//   return new Response(JSON.stringify(alterResponse));
+// });
 
 // Requisicao get
 const fetchGet = async () => {
   try {
-    const response = await api.get('users')
+    const response = await api.get('/users')
     console.log(response)
   } catch (error) {
     console.log(error)
@@ -83,7 +82,7 @@ const fetchDelete = async () => {
   }
 }
 
-// fetchGet()
+fetchGet()
 // fetchPost()
 // fetchPut()
 // fetchPatch()

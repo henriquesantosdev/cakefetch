@@ -6,23 +6,23 @@ const api = new Cakefetch({
 })
 
 //uso do interceptor do request
-// api.addRequestInterceptor((config) => {
-//   console.log(config.headers.Authorization)
-//   return config
-// })
+api.addRequestInterceptor((config) => {
+  console.log(config.headers.Authorization)
+  return config
+})
 
 // uso do interceptor do response
-// api.addResponseInterceptor(async response => {
-//   if (!response.ok) {
-//     return Promise.reject(new Error(`Erro na requisição: ${response.status}`));
-//   }
-//   const alterResponse = await response.json()
-//   alterResponse.data = {
-//     ...alterResponse.data,
-//     teste: 'teste'
-//   }
-//   return new Response(JSON.stringify(alterResponse));
-// });
+api.addResponseInterceptor(async response => {
+  if (!response.ok) {
+    return Promise.reject(new Error(`Erro na requisição: ${response.status}`));
+  }
+  const alterResponse = await response.json()
+  alterResponse.data = {
+    ...alterResponse.data,
+    teste: 'teste'
+  }
+  return new Response(JSON.stringify(alterResponse));
+});
 
 // Requisicao get
 const fetchGet = async () => {

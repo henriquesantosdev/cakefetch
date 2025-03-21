@@ -2,6 +2,7 @@ import Cakefetch from 'cakefetch'
 
 const api = new Cakefetch({
   baseUrl: 'http://localhost:3000',
+  authToken: 'Bearer {token}'
 })
 
 //uso do interceptor do request

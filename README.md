@@ -35,7 +35,8 @@ yarn add cakefetch
 import Cakefetch from 'cakefetch'
 
 const api = new Cakefetch({
-  baseUrl: 'https://apiurl.com/'
+  baseUrl: 'http://localhost:3000',
+  authToken: 'Bearer {token}' //Se você precisa usar um token
 })
 ```
 
@@ -186,7 +187,8 @@ yarn add cakefetch
 import Cakefetch from 'cakefetch'
 
 const api = new Cakefetch({
-  baseUrl: 'https://apiurl.com/'
+  baseUrl: 'http://localhost:3000',
+  authToken: 'Bearer {token}' //If you need to use a token
 })
 ```
 
